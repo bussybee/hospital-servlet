@@ -2,36 +2,42 @@ package com.vsu.cs.maslova_e_i.service;
 
 import com.vsu.cs.maslova_e_i.entity.Department;
 import com.vsu.cs.maslova_e_i.entity.Patient;
-import lombok.AllArgsConstructor;
+import com.vsu.cs.maslova_e_i.repository.DepartmentRepository;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class DepartmentServiceImpl implements DepartmentService {
-    private final DepartmentService departmentService;
+    private final DepartmentRepository departmentRepository;
 
     @Override
     public void create(Department department) {
-        departmentService.create(department);
+        departmentRepository.create(department);
     }
 
     @Override
     public void delete(int id) {
-        departmentService.delete(id);
+        departmentRepository.delete(id);
     }
 
     @Override
     public void update(Department department) {
-        departmentService.update(department);
+        departmentRepository.update(department);
     }
 
     @Override
     public Department findById(int id) {
-        return departmentService.findById(id);
+        return departmentRepository.findById(id);
     }
 
     @Override
-    public List<Patient> getAllDepartmentPatients() {
-        return departmentService.getAllDepartmentPatients();
+    public List<Department> getAllDepartments() {
+        return departmentRepository.getAllDepartments();
+    }
+
+    @Override
+    public List<Patient> getPatientsByDepartmentId(int departmentId) {
+        return departmentRepository.getPatientsByDepartmentId(departmentId);
     }
 }

@@ -10,5 +10,6 @@ public interface DepartmentService {
     void delete(int id);
     void update(Department department);
     Department findById(int id);
-    List<Patient> getAllDepartmentPatients();
+    List<Department> getAllDepartments();
+    List<Patient> getPatientsByDepartmentId(int departmentId);
 }
