@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Список Отделений</title>
+    <title>Пациенты Отделения</title>
     <style>
         .btn {
             display: inline-block;
@@ -37,29 +37,26 @@
 <body>
 <div class="main">
     <div class="container">
-        <h1>Список Отделений</h1>
-        <a href="departments?action=new" class="btn">Добавить Новое Отделение</a>
+        <h1>Пациенты Отделения</h1>
         <table class="table">
             <thead>
             <tr>
-                <th>Название</th>
-                <th>Действия</th>
+                <th>ФИО</th>
+                <th>Возраст</th>
+                <th>Пол</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="department" items="${departments}">
+            <c:forEach var="patient" items="${patients}">
                 <tr>
-                    <td>${department.name}</td>
-                    <td>
-                        <a href="departments?action=edit&id=${department.id}" class="btn">Редактировать</a>
-                        <a href="departments?action=delete&id=${department.id}" class="btn" style="background-color: #dc3545;">Удалить</a>
-                        <a href="patientListByDepartment.jsp" class="btn" style="background-color: #28a745;">Просмотреть Пациентов</a>
-                    </td>
+                    <td>${patient.fullName}</td>
+                    <td>${patient.age}</td>
+                    <td>${patient.gender}</td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
-        <a href="index.jsp" class="btn">Назад</a>
+        <a href="departmentList.jsp" class="btn">Назад к Отделениям</a>
     </div>
 </div>
 </body>

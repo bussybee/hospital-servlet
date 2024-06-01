@@ -9,12 +9,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/departments")
 @AllArgsConstructor
 @NoArgsConstructor
+@Slf4j
 public class DepartmentServlet extends HttpServlet {
     private DepartmentService departmentService;
 
@@ -55,7 +58,9 @@ public class DepartmentServlet extends HttpServlet {
     }
 
     private void listDepartments(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("departments", departmentService.getAllDepartments());
+        List<Department> departments = departmentService.getAllDepartments();
+        log.info("Departments: {}", departments); // Вывод информации о списках отделений для отладки
+        req.setAttribute("departments", departments);
         req.getRequestDispatcher("/departmentList.jsp").forward(req, resp);
     }
 
@@ -99,6 +104,7 @@ public class DepartmentServlet extends HttpServlet {
     private void viewPatients(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int departmentId = Integer.parseInt(req.getParameter("id"));
         req.setAttribute("patients", departmentService.getPatientsByDepartmentId(departmentId));
-        req.getRequestDispatcher("/patientList.jsp").forward(req, resp);
+        req.getRequestDispatcher("/patientListByDepartment.jsp").forward(req, resp);
     }
 }
+

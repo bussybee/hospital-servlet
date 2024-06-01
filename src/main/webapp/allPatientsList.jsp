@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Список Отделений</title>
+    <title>Список Всех Пациентов</title>
     <style>
         .btn {
             display: inline-block;
@@ -37,23 +37,28 @@
 <body>
 <div class="main">
     <div class="container">
-        <h1>Список Отделений</h1>
-        <a href="departments?action=new" class="btn">Добавить Новое Отделение</a>
+        <h1>Список Всех Пациентов</h1>
+        <a href="patients?action=new" class="btn">Добавить Нового Пациента</a>
         <table class="table">
             <thead>
             <tr>
-                <th>Название</th>
+                <th>ФИО</th>
+                <th>Возраст</th>
+                <th>Пол</th>
+                <th>Отделение</th>
                 <th>Действия</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="department" items="${departments}">
+            <c:forEach var="patient" items="${patients}">
                 <tr>
-                    <td>${department.name}</td>
+                    <td>${patient.fullName}</td>
+                    <td>${patient.age}</td>
+                    <td>${patient.gender}</td>
+                    <td>${patient.departmentName}</td>
                     <td>
-                        <a href="departments?action=edit&id=${department.id}" class="btn">Редактировать</a>
-                        <a href="departments?action=delete&id=${department.id}" class="btn" style="background-color: #dc3545;">Удалить</a>
-                        <a href="patientListByDepartment.jsp" class="btn" style="background-color: #28a745;">Просмотреть Пациентов</a>
+                        <a href="patients?action=edit&id=${patient.id}" class="btn">Редактировать</a>
+                        <a href="patients?action=delete&id=${patient.id}" class="btn">Удалить</a>
                     </td>
                 </tr>
             </c:forEach>

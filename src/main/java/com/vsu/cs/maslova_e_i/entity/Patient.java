@@ -14,5 +14,5 @@ public class Patient {
     private String fullName;
     private int age;
     private String gender;
-    private int departmentId;
+    private String departmentName;
 }

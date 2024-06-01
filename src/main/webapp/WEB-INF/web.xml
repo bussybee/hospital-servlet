@@ -1,19 +1,8 @@
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
 
-  <display-name>Archetype Created Web Application</display-name>
-
-  <servlet>
-    <servlet-name>DepartmentServlet</servlet-name>
-    <servlet-class>com.vsu.cs.maslova_e_i.servlet.DepartmentServlet</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>DepartmentServlet</servlet-name>
-    <url-pattern>/departments</url-pattern>
-  </servlet-mapping>
-
+  <!-- Department servlets can be added similarly -->
 </web-app>
